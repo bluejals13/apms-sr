@@ -115,10 +115,10 @@ APMS.SR은 사용자 인증(Authentication), 인가(Authorization), IAM, Token L
 
 상세 구조:
 
-* [System Context](docs/02-architecture/system-context.md)
-* [Architecture Overview](docs/02-architecture/architecture-overview.md)
-* [Container Architecture](docs/02-architecture/container.md)
-* [Component Architecture](docs/02-architecture/component.md)
+* [System Context](https://github.com/bluejals13/SA-1/tree/main/docs/02-architecture/system-context.md)
+* [Architecture Overview](https://github.com/bluejals13/SA-1/tree/main/docs/02-architecture/architecture-overview.md)
+* [Container Architecture](https://github.com/bluejals13/SA-1/tree/main/docs/02-architecture/container.md)
+* [Component Architecture](https://github.com/bluejals13/SA-1/tree/main/docs/02-architecture/component.md)
 
 ---
 
@@ -154,8 +154,8 @@ Client
 
 상세:
 
-* [Authentication Flow](docs/02-architecture/authentication-flow.md)
-* [ADR-0004 JWT](docs/03-adr/0004-jwt.md)
+* [Authentication Flow](https://github.com/bluejals13/SA-1/tree/main/docs/02-architecture/authentication-flow.md)
+* [ADR-0004 JWT](https://github.com/bluejals13/SA-1/tree/main/docs/03-adr/0004-jwt.md)
 
 ---
 
@@ -204,10 +204,10 @@ Redis
 
 상세:
 
-* [Authentication Flow](docs/02-architecture/authentication-flow.md)
-* [Data Flow](docs/02-architecture/data-flow.md)
-* [ADR-0003 Redis](docs/03-adr/0003-redis.md)
-* [ADR-0005 Refresh Token Rotation](docs/03-adr/0005-refresh-token-rotation.md)
+* [Authentication Flow](https://github.com/bluejals13/SA-1/tree/main/docs/02-architecture/authentication-flow.md)
+* [Data Flow](https://github.com/bluejals13/SA-1/tree/main/docs/02-architecture/data-flow.md)
+* [ADR-0003 Redis](https://github.com/bluejals13/SA-1/tree/main/docs/03-adr/0003-redis.md)
+* [ADR-0005 Refresh Token Rotation](https://github.com/bluejals13/SA-1/tree/main/docs/03-adr/0005-refresh-token-rotation.md)
 
 ---
 
@@ -255,9 +255,9 @@ Role-Permission 관계의 Source of Truth는 MySQL입니다.
 
 상세:
 
-* [Authorization Flow](docs/02-architecture/authorization-flow.md)
-* [Data Flow](docs/02-architecture/data-flow.md)
-* [ADR-0006 RBAC](docs/03-adr/0006-rbac.md)
+* [Authorization Flow](https://github.com/bluejals13/SA-1/tree/main/docs/02-architecture/authorization-flow.md)
+* [Data Flow](https://github.com/bluejals13/SA-1/tree/main/docs/02-architecture/data-flow.md)
+* [ADR-0006 RBAC](https://github.com/bluejals13/SA-1/tree/main/docs/03-adr/0006-rbac.md)
 
 ---
 
@@ -296,9 +296,9 @@ Native TTL을 이용하여 Token State의 lifecycle을 관리하고, MySQL의 �
 
 상세:
 
-* [Data Flow](docs/02-architecture/data-flow.md)
-* [ADR-0002 Database](docs/03-adr/0002-database.md)
-* [ADR-0003 Redis](docs/03-adr/0003-redis.md)
+* [Data Flow](https://github.com/bluejals13/SA-1/tree/main/docs/02-architecture/data-flow.md)
+* [ADR-0002 Database](https://github.com/bluejals13/SA-1/tree/main/docs/03-adr/0002-database.md)
+* [ADR-0003 Redis](https://github.com/bluejals13/SA-1/tree/main/docs/03-adr/0003-redis.md)
 
 ---
 
@@ -335,8 +335,8 @@ IAM Data      Token State
 
 상세:
 
-* [Failure Topology](docs/02-architecture/failure-topology.md)
-* [Redis Failure Requirement](docs/01-prd/security/PRD-SEC-005-Redis-Failure.md)
+* [Failure Topology](https://github.com/bluejals13/SA-1/tree/main/docs/02-architecture/failure-topology.md)
+* [Redis Failure Requirement](https://github.com/bluejals13/SA-1/tree/main/docs/01-prd/security/PRD-SEC-005-Redis-Failure.md)
 
 ---
 
@@ -424,8 +424,8 @@ Grafana
 
 상세:
 
-* [Performance](docs/performance/k6-load-test.md)
-* [Architecture](docs/02-architecture/architecture-overview.md)
+* [Performance](https://github.com/bluejals13/SA-1/tree/main/docs/performance/k6-load-test.md)
+* [Architecture](https://github.com/bluejals13/SA-1/tree/main/docs/02-architecture/architecture-overview.md)
 
 ---
 
@@ -449,12 +449,12 @@ Grafana
 
 상세 의사결정은 ADR에서 확인할 수 있습니다.
 
-* [ADR-0001 Architecture](docs/03-adr/0001-architecture.md)
-* [ADR-0002 Database](docs/03-adr/0002-database.md)
+* [ADR-0001 Architecture](https://github.com/bluejals13/SA-1/tree/main/docs/03-adr/0001-architecture.md)
+* [ADR-0002 Database](https://github.com/bluejals13/SA-1/tree/main/docs/03-adr/0002-database.md)
 * [ADR-0003 Redis](docs/03-adr/0003-redis.md)
-* [ADR-0004 JWT](docs/03-adr/0004-jwt.md)
-* [ADR-0005 Refresh Token Rotation](docs/03-adr/0005-refresh-token-rotation.md)
-* [ADR-0006 RBAC](docs/03-adr/0006-rbac.md)
+* [ADR-0004 JWT](https://github.com/bluejals13/SA-1/tree/main/docs/03-adr/0004-jwt.md)
+* [ADR-0005 Refresh Token Rotation](https://github.com/bluejals13/SA-1/tree/main/docs/03-adr/0005-refresh-token-rotation.md)
+* [ADR-0006 RBAC](https://github.com/bluejals13/SA-1/tree/main/docs/03-adr/0006-rbac.md)
 
 ---
 
@@ -499,11 +499,11 @@ APMS.SR의 문서는 하나의 README에 모든 내용을 중복해서 기록하
 
 | Layer        | Responsibility             | Documentation                           |
 | ------------ | -------------------------- | --------------------------------------- |
-| Overview     | 프로젝트 목적 / 범위               | [00-overview](docs/00-overview)         |
-| PRD          | 요구사항 / Acceptance Criteria | [01-prd](docs/01-prd)                   |
-| Architecture | 시스템 구조 / Flow              | [02-architecture](docs/02-architecture) |
-| ADR          | 설계 의사결정                    | [03-adr](docs/03-adr)                   |
-| Security     | 인증 / 인가 정책                 | [Security](docs/reference/security.md)  |
+| Overview     | 프로젝트 목적 / 범위               | [00-overview](https://github.com/bluejals13/SA-1/tree/main/docs/00-overview)         |
+| PRD          | 요구사항 / Acceptance Criteria | [01-prd](https://github.com/bluejals13/SA-1/tree/main/docs/01-prd)                   |
+| Architecture | 시스템 구조 / Flow              | [02-architecture](https://github.com/bluejals13/SA-1/tree/main/docs/02-architecture) |
+| ADR          | 설계 의사결정                    | [03-adr](https://github.com/bluejals13/SA-1/tree/main/docs/03-adr)                   |
+| Security     | 인증 / 인가 정책                 | [Security](https://github.com/bluejals13/SA-1/tree/main/docs/reference/security.md)  |
 | Performance  | 부하 / 성능 검증                 | [k6](docs/performance/k6-load-test.md)  |
 | Operations   | 실행 / 운영 / 장애 대응            | [Operations](docs/operations)           |
 
