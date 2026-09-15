@@ -14,7 +14,7 @@
 ### 단일 진실 공급원 (Single Source of Truth) 원칙
 * **보안 및 RBAC 정책:** 백엔드 Spring Security 필터, 토큰 수명 주기, 인가 정책 및 권한 매트릭스는 본 문서에서 재정의하지 않으며, [docs/reference/security.md](reference/security.md)를 단일 진실 공급원으로 참조합니다.
 * **백엔드 개발 규칙:** Java/Spring Boot 아키텍처 및 DTO 규약은 [docs/03_Backend_Conventions.md](03_Backend_Conventions.md)를 참조합니다.
-* **성능 검증 절차:** k6 기반 부하 테스트 및 모니터링 절차는 [docs/performance/k6-load-test.md](performance/k6-load-test.md) 및 [k6/](../k6/)의 Runbook을 따릅니다.
+* **성능 검증 절차:** k6 기반 부하 테스트 및 모니터링 절차는 [verification/performance/k6/k6-load-test.md](../verification/performance/k6/k6-load-test.md) 및 [verification/performance/k6/](../verification/performance/k6/)의 Runbook을 따릅니다.
 
 ---
 

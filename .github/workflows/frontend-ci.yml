@@ -12,7 +12,7 @@ jobs:
 
     defaults:
       run:
-        working-directory: APMS.SR/dev/frontend
+        working-directory: apms-sr/frontend
 
     steps:
       - name: Checkout repository

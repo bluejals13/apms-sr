@@ -17,7 +17,7 @@
 | **퀵 스타트 및 실행 가이드** | [`02_Quick_Start.md`](./02_Quick_Start.md) | Java 17, Node 20, Docker Compose 기반 원클릭 실행 및 검증 가이드 |
 | **백엔드 개발 표준 및 코딩 규칙** | [`03_Backend_Conventions.md`](./03_Backend_Conventions.md) | Record DTO, ApiResponse, GlobalExceptionHandler, JPA 최적화 규약 |
 | **프론트엔드 개발 표준 및 코딩 규칙** | [`04_Frontend_Conventions.md`](./04_Frontend_Conventions.md) | React Query, Mutation Invalidation, Type, RBAC Feature Composition 규약 |
-| **AI 에이전트 표준 명령어** | [`05_Agent_Commands.md`](./05_Agent_Commands.md) | 에이전트 작업 지시 및 코드 리뷰 표준 프롬프트 모음 |
+| **AI 에이전트 표준 명령어** | [`05_Agent_Commands.md`](./06_Agent_Commands.md) | 에이전트 작업 지시 및 코드 리뷰 표준 프롬프트 모음 |
 | **문서 작성 5대 원칙** | [`rules.md`](./rules.md) | Reference, ADR, Troubleshooting, Roadmap, Duplication 5대 원칙 |
 
 ---

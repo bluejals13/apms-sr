@@ -424,7 +424,7 @@ Grafana
 
 상세:
 
-* [Performance](https://github.com/bluejals13/SA-1/tree/main/docs/performance/k6-load-test.md)
+* [Performance](https://github.com/bluejals13/apms-sr/blob/main/verification/performance/k6/k6-load-test.md)
 * [Architecture](https://github.com/bluejals13/SA-1/tree/main/docs/02-architecture/architecture-overview.md)
 
 ---
@@ -504,7 +504,7 @@ APMS.SR의 문서는 하나의 README에 모든 내용을 중복해서 기록하
 | Architecture | 시스템 구조 / Flow              | [02-architecture](https://github.com/bluejals13/SA-1/tree/main/docs/02-architecture) |
 | ADR          | 설계 의사결정                    | [03-adr](https://github.com/bluejals13/SA-1/tree/main/docs/03-adr)                   |
 | Security     | 인증 / 인가 정책                 | [Security](/docs/reference/security.md)  |
-| Performance  | 부하 / 성능 검증                 | [k6](docs/performance/k6-load-test.md)  |
+| Performance  | 부하 / 성능 검증                 | [k6](verification/performance/k6/k6-load-test.md)  |
 | Operations   | 실행 / 운영 / 장애 대응            | [Operations](docs/)           |
 
 ### Documentation Principle

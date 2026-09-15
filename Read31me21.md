@@ -33,7 +33,7 @@ docker compose up -d
 | **백엔드 표준** | 백엔드 개발 표준 및 코딩 규칙 | [`docs/03_Backend_Conventions.md`](docs/03_Backend_Conventions.md) |
 | **프론트엔드 표준** | 프론트엔드 개발 표준 및 코딩 규칙 | [`docs/04_Frontend_Conventions.md`](docs/04_Frontend_Conventions.md) |
 | **보안 & RBAC** | 시스템 보안 및 RBAC 아키텍처 | [`docs/reference/security.md`](docs/reference/security.md) |
-| **부하 테스트** | k6 부하 및 스트레스 테스트 보고서 | [`docs/performance/k6-load-test.md`](docs/performance/k6-load-test.md) |
+| **부하 테스트** | k6 부하 및 스트레스 테스트 보고서 | [`verification/performance/k6/k6-load-test.md`](verification/performance/k6/k6-load-test.md) |
 | **문서화 원칙** | 문서 작성 5대 원칙 | [`docs/rules.md`](docs/rules.md) |
 
 ## 🌐 접속 정보 (Service Endpoints)

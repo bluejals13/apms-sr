@@ -7,9 +7,9 @@
 ## 2. Directory Map
 - `/backend/`: 백엔드 API 서버 소스코드
 - `/frontend/`: 프론트엔드 UI 소스코드
-- `/nginx/`: 웹 서버 및 리버스 프록시 설정
-- `/monitoring/`: 프로메테우스, 그라파나 등 모니터링 설정
-- `/k6/`: 부하 테스트 스크립트 모음
+- `/infra/nginx/`: 웹 서버 및 리버스 프록시 설정
+- `/infra/monitoring/`: Prometheus, Grafana 등 모니터링 설정
+- `/verification/performance/k6/`: 부하 테스트 스크립트 및 성능 검증
 - `docker-compose.yml`: 전체 인프라 실행 컨테이너 오케스트레이션
 
 ## 3. Agent Rules
