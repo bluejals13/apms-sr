@@ -1,6 +1,57 @@
 
 # AUTH Frontend Authentication
 
+
+
+
+# 17. Implementation Evidence
+
+Frontend Authentication의 주요 구현 근거는 다음과 같다.
+
+| 구현 영역                    | Source                                     |
+| ------------------------ | ------------------------------------------ |
+| HTTP / Refresh           | [api/http.ts](https://github.com/bluejals13/apms-sr/blob/feature/auth%400603%401401/frontend/src/api/http.ts)                 |
+| User API                 | [api/user.api.ts](https://github.com/bluejals13/apms-sr/blob/feature/auth%400603%401401/frontend/src/api/user.api.ts)             |
+| Authentication Bootstrap | [auth/auth.bootstrap.ts](https://github.com/bluejals13/apms-sr/blob/feature/auth%400603%401401/frontend/src/auth/auth.bootstrap.ts)      |
+| Current User Query       | [queries/useMe.ts](https://github.com/bluejals13/apms-sr/blob/feature/auth%400603%401401/frontend/src/queries/useMe.ts)            |
+| Authentication State     | [store/auth.store.ts](https://github.com/bluejals13/apms-sr/blob/feature/auth%400603%401401/frontend/src/store/auth.store.ts)         |
+| Authentication Hook      | [hooks/useAuth.ts](https://github.com/bluejals13/apms-sr/blob/feature/auth%400603%401401/frontend/src/auth/hooks/useAuth.ts)       |
+| Login Form               | [auth/hooks/useLoginForm.ts](https://github.com/bluejals13/apms-sr/blob/feature/auth%400603%401401/frontend/src/auth/hooks/useLoginForm.ts)  |
+| Login Page               | [pages/Login.tsx](https://github.com/bluejals13/apms-sr/blob/feature/auth%400603%401401/frontend/src/pages/Login.tsx)             |
+| Signup Form              | [auth/hooks/useSignupForm.ts](https://github.com/bluejals13/apms-sr/blob/feature/auth%400603%401401/frontend/src/auth/hooks/useSignupForm.ts) |
+| Signup Page              | [pages/Signup.tsx](https://github.com/bluejals13/apms-sr/blob/feature/auth%400603%401401/frontend/src/pages/Signup.tsx)            |
+| Authentication Header    | [components/AuthHeader.tsx](https://github.com/bluejals13/apms-sr/blob/feature/auth%400603%401401/frontend/src/components/AuthHeader.tsx)   |
+| Global Header            | [components/Header.tsx](https://github.com/bluejals13/apms-sr/blob/feature/auth%400603%401401/frontend/src/components/Header.tsx)       |
+| Authentication Layout    | [layout/AuthLayout.tsx](https://github.com/bluejals13/apms-sr/blob/feature/auth%400603%401401/frontend/src/layout/AuthLayout.tsx)       |
+
+---
+
+# 18. Summary
+
+APMS-SR Frontend Authentication은 단일 Login 기능으로 구성되지 않는다.
+
+전체 인증 흐름은 다음과 같이 구성된다.
+
+```text
+Login / Signup
+      ↓
+HTTP Authentication Layer
+      ↓
+Access Token
+      ↓
+Auth Store
+      ↓
+Bootstrap / Refresh
+      ↓
+Current User Query
+      ↓
+useAuth
+      ↓
+Application UI
+```
+
+
+
 ## 1. Document Purpose
 
 본 문서는 APMS-SR Frontend에서 구현된 **인증(Authentication) 처리 구조와 상태 흐름**을 정리한다.
@@ -668,51 +719,6 @@ Frontend Auth State
 
 ---
 
-# 17. Implementation Evidence
-
-Frontend Authentication의 주요 구현 근거는 다음과 같다.
-
-| 구현 영역                    | Source                                     |
-| ------------------------ | ------------------------------------------ |
-| HTTP / Refresh           | [api/http.ts](https://github.com/bluejals13/apms-sr/blob/feature/auth%400603%401401/frontend/src/api/http.ts)                 |
-| User API                 | [api/user.api.ts](https://github.com/bluejals13/apms-sr/blob/feature/auth%400603%401401/frontend/src/api/user.api.ts)             |
-| Authentication Bootstrap | [auth/auth.bootstrap.ts](https://github.com/bluejals13/apms-sr/blob/feature/auth%400603%401401/frontend/src/auth/auth.bootstrap.ts)      |
-| Current User Query       | [queries/useMe.ts](https://github.com/bluejals13/apms-sr/blob/feature/auth%400603%401401/frontend/src/queries/useMe.ts)            |
-| Authentication State     | [store/auth.store.ts](https://github.com/bluejals13/apms-sr/blob/feature/auth%400603%401401/frontend/src/store/auth.store.ts)         |
-| Authentication Hook      | [hooks/useAuth.ts)](https://github.com/bluejals13/apms-sr/blob/feature/auth%400603%401401/frontend/src/auth/hooks/useAuth.ts)       |
-| Login Form               | [auth/hooks/useLoginForm.ts](https://github.com/bluejals13/apms-sr/blob/feature/auth%400603%401401/frontend/src/auth/hooks/useLoginForm.ts)  |
-| Login Page               | [pages/Login.tsx](https://github.com/bluejals13/apms-sr/blob/feature/auth%400603%401401/frontend/src/pages/Login.tsx)             |
-| Signup Form              | [auth/hooks/useSignupForm.ts](https://github.com/bluejals13/apms-sr/blob/feature/auth%400603%401401/frontend/src/auth/hooks/useSignupForm.ts) |
-| Signup Page              | [pages/Signup.tsx](https://github.com/bluejals13/apms-sr/blob/feature/auth%400603%401401/frontend/src/pages/Signup.tsx)            |
-| Authentication Header    | [components/AuthHeader.tsx](https://github.com/bluejals13/apms-sr/blob/feature/auth%400603%401401/frontend/src/components/AuthHeader.tsx)   |
-| Global Header            | [components/Header.tsx](https://github.com/bluejals13/apms-sr/blob/feature/auth%400603%401401/frontend/src/components/Header.tsx)       |
-| Authentication Layout    | [layout/AuthLayout.tsx](https://github.com/bluejals13/apms-sr/blob/feature/auth%400603%401401/frontend/src/layout/AuthLayout.tsx)       |
-
----
-
-# 18. Summary
-
-APMS-SR Frontend Authentication은 단일 Login 기능으로 구성되지 않는다.
-
-전체 인증 흐름은 다음과 같이 구성된다.
-
-```text
-Login / Signup
-      ↓
-HTTP Authentication Layer
-      ↓
-Access Token
-      ↓
-Auth Store
-      ↓
-Bootstrap / Refresh
-      ↓
-Current User Query
-      ↓
-useAuth
-      ↓
-Application UI
-```
 
 핵심 구현 책임은 다음과 같이 분리되어 있다.
 
