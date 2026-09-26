@@ -2,7 +2,8 @@
 # AUTH Frontend Authentication
 
 
-
+<details>
+<summary><strong> 17. Implementation Evidence </strong></summary>
 
 # 17. Implementation Evidence
 
@@ -25,7 +26,10 @@ Frontend Authentication의 주요 구현 근거는 다음과 같다.
 | Authentication Layout    | [layout/AuthLayout.tsx](https://github.com/bluejals13/apms-sr/blob/feature/auth%400603%401401/frontend/src/layout/AuthLayout.tsx)       |
 
 ---
+</details>
 
+<details>
+<summary><strong> 18. Summary </strong></summary>
 # 18. Summary
 
 APMS-SR Frontend Authentication은 단일 Login 기능으로 구성되지 않는다.
@@ -50,7 +54,7 @@ useAuth
 Application UI
 ```
 
-
+</details>
 
 ## 1. Document Purpose
 
@@ -97,6 +101,9 @@ Header / Page 등 UI에서 인증 상태 소비
 Frontend는 Refresh Token 자체를 직접 관리하는 것이 아니라 Backend가 관리하는 Refresh Token 기반 세션을 이용하여 Access Token을 갱신하고 인증 상태를 복구한다.
 
 ---
+
+<details>
+<summary><strong> # 3. Authentication Architecture </strong></summary>
 
 # 3. Authentication Architecture
 
@@ -156,6 +163,7 @@ Frontend 인증 구조는 다음과 같이 역할을 분리한다.
 | `AuthLayout.tsx`    | Login / Signup 등 인증 페이지 Layout |
 
 ---
+</details>
 
 # 4. HTTP Authentication Layer
 
@@ -475,6 +483,10 @@ Authentication과 User Management 사이의 API 소비 책임을 분리하는 �
 
 ---
 
+
+<details>
+<summary><strong> 12. Authentication UI </strong></summary>
+
 # 12. Authentication UI
 
 ## 12.1 `Header.tsx`
@@ -533,7 +545,9 @@ AuthLayout
 인증 처리 로직과 화면 Layout을 분리한다.
 
 ---
-
+</details>
+<details>
+<summary><strong> 13. End-to-End Frontend Authentication Flow </strong></summary>
 # 13. End-to-End Frontend Authentication Flow
 
 전체 Frontend 인증 흐름은 다음과 같다.
@@ -610,6 +624,8 @@ Original Request Retry
 ```
 
 ---
+</details>
+
 
 # 14. Frontend Authentication Responsibility Matrix
 
@@ -631,6 +647,8 @@ Original Request Retry
 
 ---
 
+<details>
+<summary><strong> 15. Security Considerations </strong></summary>
 # 15. Security Considerations
 
 Frontend Authentication에서 다음 원칙을 적용한다.
@@ -692,7 +710,9 @@ Backend
 Frontend에서 버튼이나 메뉴가 보이지 않는 것만으로 API 접근이 보호되는 것은 아니다.
 
 ---
-
+</details>
+<details>
+<summary><strong> 16. Runtime Verification 연결 </strong></summary>
 # 16. Runtime Verification 연결
 
 본 문서에서 설명한 Frontend 인증 구조의 실제 실행 결과는 다음 문서에서 검증한다.
@@ -714,6 +734,7 @@ Protected API
   ↓
 Frontend Auth State
 ```
+</details>
 
 따라서 본 문서는 **구현 구조**, Runtime Verification 문서는 **실행 결과**를 담당한다.
 
