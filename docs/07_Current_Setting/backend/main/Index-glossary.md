@@ -45,15 +45,17 @@
 
 ---
 ## 기본 DB 와 Key 관련 용어 3~4
-[Base-DB , Keyt.md](https://github.com/bluejals13/apms-sr/blob/feature/auth%400603%401401/docs/07_Current_Setting/backend/main/sql-flyway_glossary/Base-DB , Keyt.md)
+[Base-DB , Keyt.md](https://github.com/bluejals13/apms-sr/blob/feature/auth%400603%401401/docs/07_Current_Setting/backend/main/sql-flyway_glossary/Base-DB%20%2C%20Key.md)
 
 ---
+
 ## 기본 Constraint 과 Data_Type 관련 용어 5~6
-[Base-Constraint , Data_Type.md](https://github.com/bluejals13/apms-sr/blob/feature/auth%400603%401401/docs/07_Current_Setting/backend/main/sql-flyway_glossary/Base-Constraint , Data_Type.md)
+[Base-Constraint , Data_Type.md](https://github.com/bluejals13/apms-sr/blob/feature/auth%400603%401401/docs/07_Current_Setting/backend/main/sql-flyway_glossary/Base-Constraint%20%2C%20Data_Type.md)
 
 ---
+
 ## 기본 SQL 와 Flyway 관련 용어 7~8
-[Base-DB , Keyt.md](https://github.com/bluejals13/apms-sr/blob/feature/auth%400603%401401/docs/07_Current_Setting/backend/main/sql-flyway_glossary/Base-DB , Keyt.md)
+[Base-SQL , Flyway.md](https://github.com/bluejals13/apms-sr/blob/feature/auth%400603%401401/docs/07_Current_Setting/backend/main/sql-flyway_glossary/Base-SQL%20%2C%20Flyway.md)
 
 ---
 
