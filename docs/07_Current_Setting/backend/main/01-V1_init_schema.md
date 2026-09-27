@@ -1,4 +1,7 @@
 
+## 현재 사용 중인 Flyway, V1__init_schema.sql
+[migration/V1__init_schema.sql](https://github.com/bluejals13/apms-sr/blob/feature/auth%400603%401401/backend/src/main/resources/db/migration/V1__init_schema.sql)
+
 
 # APMS-SR V1 — Initial Schema
 
