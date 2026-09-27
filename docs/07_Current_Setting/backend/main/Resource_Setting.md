@@ -1,4 +1,10 @@
 
+## 현재 사용 중인 .properties application.properties
+[resources/application.properties](https://github.com/bluejals13/apms-sr/blob/feature/auth%400603%401401/backend/src/main/resources/application.properties)
+
+## 현재 사용 중인 .yaml application.yaml
+[resources/application.yaml](https://github.com/bluejals13/apms-sr/blob/feature/auth%400603%401401/backend/src/main/resources/application.yaml)
+
  # Backend Resource 설정
 
  ## 1\. 개요
