@@ -1,74 +1,90 @@
-\# Backend build.gradle 실제 설정 및 Flyway sql 파일 과 연결
 
+# Backend `build.gradle` 실제 설정 및 Flyway SQL 파일 연결
 
+ ## 1\. Backend 설정 파일
 
-## 현재 build.gradle 설정 파일
+ ### `build.gradle`
 
 [backend/build.gradle](https://github.com/bluejals13/apms-sr/blob/feature/auth@0603@1401/backend/build.gradle)
 
 
+ ### Spring 설정 파일
+
+ [application.properties](https://github.com/bluejals13/apms-sr/blob/feature/auth%400603%401401/backend/src/main/resources/application.properties)
+
+[application.yaml](https://github.com/bluejals13/apms-sr/blob/feature/auth%400603%401401/backend/src/main/resources/application.yaml)
+
+
+---
+
+ ## 2\. Flyway Migration SQL 파일
+
+ Flyway에서 사용하는 SQL 파일은 다음 경로에 위치합니다.
+
+ `backend/src/main/resources/db/migration/`
+
+
+ ### Migration 파일
+
+[V1__init_schema.sql](https://github.com/bluejals13/apms-sr/blob/feature/auth%400603%401401/backend/src/main/resources/db/migration/V1__init_schema.sql)
+
+[V2__init_authority_schema.sql](https://github.com/bluejals13/apms-sr/blob/feature/auth%400603%401401/backend/src/main/resources/db/migration/V2__init_authority_schema.sql)
+
+[V3__init_common_schema.sql](https://github.com/bluejals13/apms-sr/blob/feature/auth%400603%401401/backend/src/main/resources/db/migration/V3__init_common_schema.sql)
+
+
+[V4__insert_permissions.sql](https://github.com/bluejals13/apms-sr/blob/feature/auth%400603%401401/backend/src/main/resources/db/migration/V4__insert_permissions.sql)
+
+[V5__insert_test_users.sql](https://github.com/bluejals13/apms-sr/blob/feature/auth%400603%401401/backend/src/main/resources/db/migration/V5__insert_test_users.sql)
+
+[V6__add_user_role_manage_permission.sql](https://github.com/bluejals13/apms-sr/blob/feature/auth%400603%401401/backend/src/main/resources/db/migration/V6__add_user_role_manage_permission.sql)
 
 
 
-\[application.properties](https://github.com/bluejals13/apms-sr/blob/feature/auth%400603%401401/backend/src/main/resources/application.properties)
+---
+
+ ## 3\. 테스트 H2 설정
+
+ ### 테스트 설정 파일
+
+[application-test.properties](https://github.com/bluejals13/apms-sr/blob/feature/auth%400603%401401/backend/src/test/resources/application-test.properties)
 
 
 
-\[application.yaml](https://github.com/bluejals13/apms-sr/blob/feature/auth%400603%401401/backend/src/main/resources/application.yaml)
+ ### 테스트 데이터 SQL
+
+[security-test-data.sql](https://github.com/bluejals13/apms-sr/blob/feature/auth%400603%401401/backend/src/test/resources/sql/security-test-data.sql)
 
 
 
+---
 
+ ## 4\. 파일 구조
 
+```
+backend/
+├── build.gradle
+│
+└── src/
+    ├── main/
+    │   └── resources/
+    │       ├── application.properties
+    │       ├── application.yaml
+    │       │
+    │       └── db/
+    │           └── migration/
+    │               ├── V1__init_schema.sql
+    │               ├── V2__init_authority_schema.sql
+    │               ├── V3__init_common_schema.sql
+    │               ├── V4__insert_permissions.sql
+    │               ├── V5__insert_test_users.sql
+    │               └── V6__add_user_role_manage_permission.sql
+    │
+    └── test/
+        └── resources/
+            ├── application-test.properties
+            └── sql/
+                └── security-test-data.sql
+```
 
-
-\[V1\_\_init\_schema.sql](https://github.com/bluejals13/apms-sr/blob/feature/auth%400603%401401/backend/src/main/resources/db/migration/V1\_\_init\_schema.sql)
-
-
-
-\[V2\_\_init\_authority\_schema.sql](https://github.com/bluejals13/apms-sr/blob/feature/auth%400603%401401/backend/src/main/resources/db/migration/V2\_\_init\_authority\_schema.sql)
-
-
-
-\[V3\_\_init\_common\_schema.sql](https://github.com/bluejals13/apms-sr/blob/feature/auth%400603%401401/backend/src/main/resources/db/migration/V3\_\_init\_common\_schema.sql)
-
-
-
-\[V4\_\_insert\_permissions.sql](https://github.com/bluejals13/apms-sr/blob/feature/auth%400603%401401/backend/src/main/resources/db/migration/V4\_\_insert\_permissions.sql)
-
-
-
-\[V5\_\_insert\_test\_users.sql](https://github.com/bluejals13/apms-sr/blob/feature/auth%400603%401401/backend/src/main/resources/db/migration/V5\_\_insert\_test\_users.sql)
-
-
-
-\[V6\_\_add\_user\_role\_manage\_permission.sql](https://github.com/bluejals13/apms-sr/blob/feature/auth%400603%401401/backend/src/main/resources/db/migration/V6\_\_add\_user\_role\_manage\_permission.sql)
-
-
-
-
-
-\---
-
-
-
-\## 테스트 H2 설정 파일 연결
-
-
-
-\[application-test.properties](https://github.com/bluejals13/apms-sr/blob/feature/auth%400603%401401/backend/src/test/resources/application-test.properties)
-
-
-
-\[security-test-data.sql](https://github.com/bluejals13/apms-sr/blob/feature/auth%400603%401401/backend/src/test/resources/sql/security-test-data.sql)
-
-
-
-
-
-
-
-
-
-
-
+ 이 정도로 **원문 내용은 건드리지 않고 제목·구조·순서만 정리**하는 게 맞습니다.
