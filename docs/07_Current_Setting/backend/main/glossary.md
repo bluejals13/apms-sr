@@ -1,8 +1,11 @@
-좋습니다. 아래처럼 **각 `## 1.n` 섹션을 접을 수 있는 `<details>` 블록으로 바꾸고**, 제목은 그대로 유지하면 됩니다. 내용은 나중에 펼쳐서 확인할 수 있도록 원문을 최대한 보존하는 형태가 적합합니다.
+맞아. **V1부터 들어가기 전에 공통 용어집(Glossary)을 하나 먼저 두는 게 훨씬 좋다.**\
+ 특히 이 프로젝트는 SQL, DB, Flyway, Spring Security, 인증/인가 용어가 섞여 있어서 먼저 단어를 통일해두면 이후 V1\~V6 문서가 훨씬 편해진다.
+
+ 아래처럼 \*\*`00_Glossary.md`\*\*를 기준 문서로 두는 것을 추천해.
 
  # APMS-SR Database & Authentication Glossary
 
- ## 문서 목적
+ ## 1\. 문서 목적
 
  이 문서는 APMS-SR 프로젝트의 Flyway Migration 및 인증/인가 관련 문서를 읽을 때 반복해서 등장하는 공통 용어를 정리한 Glossary(용어집)이다.
 
@@ -21,9 +24,11 @@
 
 ---
 
- # 1\. 가장 먼저 알아야 하는 핵심 단어
+ # 2\. 가장 먼저 알아야 하는 핵심 단어
 
- \<details\> \<summary\>\<strong\>1.1 핵심 단어 10개\</strong\>\</summary\> | 용어 | 한 줄 설명 |
+ 이 프로젝트를 이해할 때 다음 10개를 먼저 기억한다.
+
+ | 용어 | 한 줄 설명 |
 | --- | --- |
 | Database | 데이터를 저장하고 관리하는 공간 |
 | Table | 데이터를 행과 열 형태로 저장하는 구조 |
@@ -38,18 +43,21 @@
 
 이것만 먼저 이해해도 이후 문서의 상당 부분을 읽을 수 있다.
 
- \</details\>
 ---
 
- # 2\. Database 관련 용어
+ # 3\. Database 관련 용어
 
- \<details\> \<summary\>\<strong\>2.1 Database\</strong\>\</summary\> ### 의미
+ ## 3.1 Database
+
+ ### 의미
 
  데이터를 체계적으로 저장하고 관리하는 시스템 또는 공간이다.
 
  쉽게 말하면:
 
  > "프로그램에서 필요한 데이터를 저장해 놓는 곳"
+
+ 이다.
 
  예:
 
@@ -65,7 +73,11 @@ Database
 
  APMS-SR에서는 사용자, Role, Permission 등의 정보를 Database에 저장한다.
 
- \</details\> \<details\> \<summary\>\<strong\>2.2 DBMS\</strong\>\</summary\> **Database Management System**의 약자다.
+---
+
+ ## 3.2 DBMS
+
+ **Database Management System**의 약자다.
 
  Database를 실제로 관리하고 SQL을 실행하는 프로그램이다.
 
@@ -89,7 +101,11 @@ Java Application
     Database
 ```
 
- \</details\> \<details\> \<summary\>\<strong\>2.3 Schema\</strong\>\</summary\> Schema는 문맥에 따라 의미가 조금 다르지만, 이 프로젝트에서는 쉽게 다음처럼 이해하면 된다.
+---
+
+ ## 3.3 Schema
+
+ Schema는 문맥에 따라 의미가 조금 다르지만, 이 프로젝트에서는 쉽게 다음처럼 이해하면 된다.
 
  > 데이터베이스에서 테이블, 컬럼, 제약조건 등의 구조를 정의한 것
 
@@ -105,7 +121,11 @@ users 테이블
 
  이러한 구조 자체를 DB Schema의 일부라고 볼 수 있다.
 
- \</details\> \<details\> \<summary\>\<strong\>2.4 Table\</strong\>\</summary\> 테이블은 데이터를 저장하는 기본 단위다.
+---
+
+ ## 3.4 Table
+
+ 테이블은 데이터를 저장하는 기본 단위다.
 
  엑셀의 한 시트와 비슷하게 생각하면 쉽다.
 
@@ -132,7 +152,11 @@ permissions
 
  테이블을 만든다.
 
- \</details\> \<details\> \<summary\>\<strong\>2.5 Column\</strong\>\</summary\> Column은 테이블에서 **어떤 종류의 데이터를 저장할지 정의하는 항목**이다.
+---
+
+ ## 3.5 Column
+
+ Column은 테이블에서 **어떤 종류의 데이터를 저장할지 정의하는 항목**이다.
 
  예:
 
@@ -154,7 +178,11 @@ status
 
  를 정의한다.
 
- \</details\> \<details\> \<summary\>\<strong\>2.6 Row\</strong\>\</summary\> Row는 테이블에 실제로 저장된 **하나의 데이터 묶음**이다.
+---
+
+ ## 3.6 Row
+
+ Row는 테이블에 실제로 저장된 **하나의 데이터 묶음**이다.
 
  예:
 
@@ -181,7 +209,13 @@ Column = 데이터의 종류
 Row    = 실제 데이터 한 건
 ```
 
- \</details\> \<details\> \<summary\>\<strong\>2.7 Record\</strong\>\</summary\> Record는 Row와 거의 같은 의미로 사용된다.
+ 이라고 기억하면 된다.
+
+---
+
+ ## 3.7 Record
+
+ Record는 Row와 거의 같은 의미로 사용된다.
 
 ```
 Row
@@ -191,16 +225,19 @@ Record
 
  예:
 
- > 사용자 1명의 데이터
+```
+사용자 1명의 데이터
+```
 
  를 하나의 Record라고 표현할 수 있다.
 
- \</details\>
 ---
 
- # 3\. Key 관련 용어
+ # 4\. Key 관련 용어
 
- \<details\> \<summary\>\<strong\>3.1 Key\</strong\>\</summary\> Key는 데이터를 식별하거나 다른 데이터와 연결하기 위해 사용하는 값이다.
+ ## 4.1 Key
+
+ Key는 데이터를 식별하거나 다른 데이터와 연결하기 위해 사용하는 값이다.
 
  이 프로젝트에서는 특히:
 
@@ -211,7 +248,11 @@ Foreign Key
 
  가 중요하다.
 
- \</details\> \<details\> \<summary\>\<strong\>3.2 Primary Key (PK)\</strong\>\</summary\> Primary Key는 테이블에서 **각 Row를 고유하게 식별하는 값**이다.
+---
+
+ ## 4.2 Primary Key (PK)
+
+ Primary Key는 테이블에서 **각 Row를 고유하게 식별하는 값**이다.
 
  예:
 
@@ -245,7 +286,11 @@ id | username
 
  라고 기억하면 된다.
 
- \</details\> \<details\> \<summary\>\<strong\>3.3 PK\</strong\>\</summary\> Primary Key의 줄임말이다.
+---
+
+ ## 4.3 PK
+
+ Primary Key의 줄임말이다.
 
 ```
 PK = Primary Key
@@ -261,7 +306,11 @@ users.id → PK
 
  > users 테이블의 id는 Primary Key다.
 
- \</details\> \<details\> \<summary\>\<strong\>3.4 Foreign Key (FK)\</strong\>\</summary\> Foreign Key는 **다른 테이블의 데이터를 참조하기 위한 Key**다.
+---
+
+ ## 4.4 Foreign Key (FK)
+
+ Foreign Key는 **다른 테이블의 데이터를 참조하기 위한 Key**다.
 
  예:
 
@@ -285,7 +334,11 @@ user_roles.user_id
 
  이다.
 
- \</details\> \<details\> \<summary\>\<strong\>3.5 FK\</strong\>\</summary\> Foreign Key의 줄임말이다.
+---
+
+ ## 4.5 FK
+
+ Foreign Key의 줄임말이다.
 
 ```
 FK = Foreign Key
@@ -297,12 +350,15 @@ FK = Foreign Key
 user_roles.user_id → FK
 ```
 
- \</details\>
 ---
 
- # 4\. Constraint 관련 용어
+ # 5\. Constraint 관련 용어
 
- \<details\> \<summary\>\<strong\>4.1 Constraint\</strong\>\</summary\> Constraint는 데이터가 잘못 들어가지 않도록 **DB가 지켜야 하는 규칙**이다.
+ Constraint는 데이터가 잘못 들어가지 않도록 **DB가 지켜야 하는 규칙**이다.
+
+---
+
+ ## 5.1 Constraint
 
  예:
 
@@ -318,7 +374,10 @@ username VARCHAR(255) UNIQUE
 
  라는 DB 규칙이다.
 
- \</details\> \<details\> \<summary\>\<strong\>4.2 NOT NULL\</strong\>\</summary\>
+---
+
+ ## 5.2 NOT NULL
+
 ```
 username VARCHAR(255) NOT NULL
 ```
@@ -329,7 +388,11 @@ username VARCHAR(255) NOT NULL
 
  즉 값이 반드시 있어야 한다.
 
- \</details\> \<details\> \<summary\>\<strong\>4.3 NULL\</strong\>\</summary\> NULL은 **값이 없음/알 수 없음**을 의미한다.
+---
+
+ ## 5.3 NULL
+
+ NULL은 **값이 없음/알 수 없음**을 의미한다.
 
  다음은 문자열 `"NULL"`과 다르다.
 
@@ -353,7 +416,10 @@ NULL
 → NULL이라는 글자가 들어 있음
 ```
 
- \</details\> \<details\> \<summary\>\<strong\>4.4 UNIQUE\</strong\>\</summary\>
+---
+
+ ## 5.4 UNIQUE
+
 ```
 username VARCHAR(255) UNIQUE
 ```
@@ -377,7 +443,10 @@ alice
 
  는 허용되지 않는다.
 
- \</details\> \<details\> \<summary\>\<strong\>4.5 DEFAULT\</strong\>\</summary\>
+---
+
+ ## 5.5 DEFAULT
+
 ```
 status DEFAULT 'ACTIVE'
 ```
@@ -392,7 +461,11 @@ status를 생략
 ACTIVE 자동 입력
 ```
 
- \</details\> \<details\> \<summary\>\<strong\>4.6 ENUM\</strong\>\</summary\> ENUM은 **정해진 값 중 하나만 선택할 수 있도록 하는 자료형**이다.
+---
+
+ ## 5.6 ENUM
+
+ ENUM은 **정해진 값 중 하나만 선택할 수 있도록 하는 자료형**이다.
 
  예:
 
@@ -420,12 +493,13 @@ TEST
 ABC
 ```
 
- \</details\>
 ---
 
- # 5\. Data Type 관련 용어
+ # 6\. Data Type 관련 용어
 
- \<details\> \<summary\>\<strong\>5.1 Data Type\</strong\>\</summary\> Column에 어떤 종류의 데이터를 저장할지 정의하는 것이다.
+ ## 6.1 Data Type
+
+ Column에 어떤 종류의 데이터를 저장할지 정의하는 것이다.
 
  예:
 
@@ -436,7 +510,11 @@ BOOLEAN
 DATETIME(6)
 ```
 
- \</details\> \<details\> \<summary\>\<strong\>5.2 BIGINT\</strong\>\</summary\> 큰 정수형 데이터 타입이다.
+---
+
+ ## 6.2 BIGINT
+
+ 큰 정수형 데이터 타입이다.
 
  주로 ID 같은 숫자 데이터에 사용할 수 있다.
 
@@ -447,7 +525,11 @@ DATETIME(6)
 100000
 ```
 
- \</details\> \<details\> \<summary\>\<strong\>5.3 INT\</strong\>\</summary\> 일반적인 정수형 데이터 타입이다.
+---
+
+ ## 6.3 INT
+
+ 일반적인 정수형 데이터 타입이다.
 
  예:
 
@@ -459,7 +541,11 @@ DATETIME(6)
 
  APMS-SR에서는 `roles.level` 등에 사용된다.
 
- \</details\> \<details\> \<summary\>\<strong\>5.4 VARCHAR\</strong\>\</summary\> 문자열을 저장하는 타입이다.
+---
+
+ ## 6.4 VARCHAR
+
+ 문자열을 저장하는 타입이다.
 
 ```
 VARCHAR(255)
@@ -475,7 +561,11 @@ ADMIN
 USER_READ
 ```
 
- \</details\> \<details\> \<summary\>\<strong\>5.5 DATETIME\</strong\>\</summary\> 날짜와 시간을 저장하는 타입이다.
+---
+
+ ## 6.5 DATETIME
+
+ 날짜와 시간을 저장하는 타입이다.
 
  예:
 
@@ -483,7 +573,11 @@ USER_READ
 2026-09-27 13:20:10
 ```
 
- \</details\> \<details\> \<summary\>\<strong\>5.6 DATETIME(6)\</strong\>\</summary\> 날짜와 시간에 더해 소수점 이하 6자리까지 시간 정밀도를 표현할 수 있다.
+---
+
+ ## 6.6 DATETIME(6)
+
+ 날짜와 시간에 더해 소수점 이하 6자리까지 시간 정밀도를 표현할 수 있다.
 
  예:
 
@@ -491,7 +585,11 @@ USER_READ
 2026-09-27 13:20:10.123456
 ```
 
- \</details\> \<details\> \<summary\>\<strong\>5.7 BOOLEAN\</strong\>\</summary\> 참/거짓을 표현한다.
+---
+
+ ## 6.7 BOOLEAN
+
+ 참/거짓을 표현한다.
 
 ```
 TRUE
@@ -504,12 +602,13 @@ FALSE
 is_system BOOLEAN
 ```
 
- \</details\>
 ---
 
- # 6\. SQL 관련 용어
+ # 7\. SQL 관련 용어
 
- \<details\> \<summary\>\<strong\>6.1 SQL\</strong\>\</summary\> **Structured Query Language**의 약자다.
+ ## 7.1 SQL
+
+ **Structured Query Language**의 약자다.
 
  Database에 명령을 전달하기 위한 언어다.
 
@@ -527,7 +626,11 @@ INSERT INTO users (...);
 CREATE TABLE users (...);
 ```
 
- \</details\> \<details\> \<summary\>\<strong\>6.2 DDL\</strong\>\</summary\> **Data Definition Language**
+---
+
+ ## 7.2 DDL
+
+ **Data Definition Language**
 
  데이터베이스의 **구조를 정의하거나 변경하는 SQL**이다.
 
@@ -541,7 +644,11 @@ DROP TABLE
 
  V1은 주로 DDL이다.
 
- \</details\> \<details\> \<summary\>\<strong\>6.3 DML\</strong\>\</summary\> **Data Manipulation Language**
+---
+
+ ## 7.3 DML
+
+ **Data Manipulation Language**
 
  DB에 저장된 **데이터를 조작하는 SQL**이다.
 
@@ -559,7 +666,11 @@ DELETE
 INSERT INTO roles ...
 ```
 
- \</details\> \<details\> \<summary\>\<strong\>6.4 SELECT\</strong\>\</summary\> DB에서 데이터를 조회한다.
+---
+
+ ## 7.4 SELECT
+
+ DB에서 데이터를 조회한다.
 
 ```
 SELECT *
@@ -570,7 +681,11 @@ FROM users;
 
  > users 테이블의 데이터를 조회한다.
 
- \</details\> \<details\> \<summary\>\<strong\>6.5 INSERT\</strong\>\</summary\> 새로운 데이터를 넣는다.
+---
+
+ ## 7.5 INSERT
+
+ 새로운 데이터를 넣는다.
 
 ```
 INSERT INTO users (...)
@@ -581,7 +696,11 @@ VALUES (...);
 
  > users 테이블에 새로운 사용자 데이터를 추가한다.
 
- \</details\> \<details\> \<summary\>\<strong\>6.6 UPDATE\</strong\>\</summary\> 기존 데이터를 변경한다.
+---
+
+ ## 7.6 UPDATE
+
+ 기존 데이터를 변경한다.
 
 ```
 UPDATE users
@@ -589,14 +708,22 @@ SET status = 'SUSPENDED'
 WHERE id = 1;
 ```
 
- \</details\> \<details\> \<summary\>\<strong\>6.7 DELETE\</strong\>\</summary\> 데이터를 삭제한다.
+---
+
+ ## 7.7 DELETE
+
+ 데이터를 삭제한다.
 
 ```
 DELETE FROM users
 WHERE id = 1;
 ```
 
- \</details\> \<details\> \<summary\>\<strong\>6.8 JOIN\</strong\>\</summary\> 두 개 이상의 테이블을 연결해서 데이터를 조회하거나 처리하는 SQL 기능이다.
+---
+
+ ## 7.8 JOIN
+
+ 두 개 이상의 테이블을 연결해서 데이터를 조회하거나 처리하는 SQL 기능이다.
 
  예:
 
@@ -610,7 +737,11 @@ user_roles
 
  V2 이후부터 매우 중요해진다.
 
- \</details\> \<details\> \<summary\>\<strong\>6.9 CROSS JOIN\</strong\>\</summary\> 두 테이블의 모든 조합을 만든다.
+---
+
+ ## 7.9 CROSS JOIN
+
+ 두 테이블의 모든 조합을 만든다.
 
  예:
 
@@ -620,12 +751,13 @@ ADMIN × Permission
 
  V4의 `ADMIN → 모든 Permission` 연결을 이해할 때 중요하다.
 
- \</details\>
 ---
 
- # 7\. Flyway 관련 용어
+ # 8\. Flyway 관련 용어
 
- \<details\> \<summary\>\<strong\>7.1 Flyway\</strong\>\</summary\> Flyway는 **Database Migration을 버전으로 관리하는 도구**다.
+ ## 8.1 Flyway
+
+ Flyway는 **Database Migration을 버전으로 관리하는 도구**다.
 
  쉽게 말하면:
 
@@ -633,7 +765,11 @@ ADMIN × Permission
 
  라는 목적의 도구다.
 
- \</details\> \<details\> \<summary\>\<strong\>7.2 Migration\</strong\>\</summary\> Migration은 **Database 구조나 데이터를 변경하는 작업 단위**다.
+---
+
+ ## 8.2 Migration
+
+ Migration은 **Database 구조나 데이터를 변경하는 작업 단위**다.
 
  예:
 
@@ -646,7 +782,11 @@ V4 → Permission 생성
 
  각 파일 하나가 하나의 Migration이 될 수 있다.
 
- \</details\> \<details\> \<summary\>\<strong\>7.3 Migration File\</strong\>\</summary\> Flyway가 실행할 SQL 파일이다.
+---
+
+ ## 8.3 Migration File
+
+ Flyway가 실행할 SQL 파일이다.
 
  예:
 
@@ -654,7 +794,11 @@ V4 → Permission 생성
 V1__init_schema.sql
 ```
 
- \</details\> \<details\> \<summary\>\<strong\>7.4 Version\</strong\>\</summary\> Migration의 순서를 나타내는 번호다.
+---
+
+ ## 8.4 Version
+
+ Migration의 순서를 나타내는 번호다.
 
  예:
 
@@ -667,7 +811,11 @@ V4
 
  일반적으로 낮은 버전에서 높은 버전 순서로 Migration이 적용된다.
 
- \</details\> \<details\> \<summary\>\<strong\>7.5 Migration History\</strong\>\</summary\> Flyway는 어떤 Migration이 이미 실행되었는지 관리한다.
+---
+
+ ## 8.5 Migration History
+
+ Flyway는 어떤 Migration이 이미 실행되었는지 관리한다.
 
  대표적으로 Flyway가 관리하는:
 
@@ -691,7 +839,11 @@ version | description
 
  와 같은 정보를 관리한다.
 
- \</details\> \<details\> \<summary\>\<strong\>7.6 Checksum\</strong\>\</summary\> Migration 파일의 내용을 검증하기 위해 사용하는 값이다.
+---
+
+ ## 8.6 Checksum
+
+ Migration 파일의 내용을 검증하기 위해 사용하는 값이다.
 
  쉽게 말하면:
 
@@ -701,7 +853,11 @@ version | description
 
  따라서 이미 적용된 Migration을 임의로 수정하는 것은 주의해야 한다.
 
- \</details\> \<details\> \<summary\>\<strong\>7.7 Versioned Migration\</strong\>\</summary\> 버전 번호를 가진 Migration이다.
+---
+
+ ## 8.7 Versioned Migration
+
+ 버전 번호를 가진 Migration이다.
 
  예:
 
@@ -710,7 +866,11 @@ V1__init_schema.sql
 V2__init_authority_schema.sql
 ```
 
- \</details\> \<details\> \<summary\>\<strong\>7.8 Migration Naming Convention\</strong\>\</summary\> 일반적인 Flyway SQL Migration 이름은:
+---
+
+ ## 8.8 Migration Naming Convention
+
+ 일반적인 Flyway SQL Migration 이름은:
 
 ```
 V<version>__<description>.sql
@@ -734,12 +894,17 @@ V1
 └── Description = init_schema
 ```
 
- \</details\>
 ---
 
- # 8\. Authentication / Authorization 관련 용어
+ # 9\. Authentication / Authorization 관련 용어
 
- \<details\> \<summary\>\<strong\>8.1 Authentication\</strong\>\</summary\> **인증**
+ 이 프로젝트를 이해하려면 여기부터 중요도가 올라간다.
+
+---
+
+ ## 9.1 Authentication
+
+ **인증**
 
  > "당신이 누구인지 확인하는 것"
 
@@ -766,7 +931,11 @@ Authentication
 Who are you?
 ```
 
- \</details\> \<details\> \<summary\>\<strong\>8.2 Authorization\</strong\>\</summary\> **인가**
+---
+
+ ## 9.2 Authorization
+
+ **인가**
 
  > "당신이 무엇을 할 수 있는지 확인하는 것"
 
@@ -794,7 +963,11 @@ Authorization
 What are you allowed to do?
 ```
 
- \</details\> \<details\> \<summary\>\<strong\>8.3 Authentication vs Authorization\</strong\>\</summary\> 둘을 반드시 구분해야 한다.
+---
+
+ ## 9.3 Authentication vs Authorization
+
+ 둘을 반드시 구분해야 한다.
 
  | 개념 | 질문 |
 | --- | --- |
@@ -815,12 +988,13 @@ Authorization
 USER_DELETE 권한이 있는지 확인
 ```
 
- \</details\>
 ---
 
- # 9\. User 관련 용어
+ # 10\. User 관련 용어
 
- \<details\> \<summary\>\<strong\>9.1 User\</strong\>\</summary\> 시스템을 사용하는 사용자다.
+ ## 10.1 User
+
+ 시스템을 사용하는 사용자다.
 
  DB에서는:
 
@@ -838,7 +1012,11 @@ email = alice@example.com
 status = ACTIVE
 ```
 
- \</details\> \<details\> \<summary\>\<strong\>9.2 User ID\</strong\>\</summary\> 사용자를 식별하는 고유 ID다.
+---
+
+ ## 10.2 User ID
+
+ 사용자를 식별하는 고유 ID다.
 
  예:
 
@@ -854,7 +1032,11 @@ users.id
 
  와 연결된다.
 
- \</details\> \<details\> \<summary\>\<strong\>9.3 Username\</strong\>\</summary\> 사용자의 로그인 이름 또는 사용자 식별 이름이다.
+---
+
+ ## 10.3 Username
+
+ 사용자의 로그인 이름 또는 사용자 식별 이름이다.
 
  V1에서는:
 
@@ -864,7 +1046,11 @@ username VARCHAR(255) UNIQUE
 
  로 정의되어 있다.
 
- \</details\> \<details\> \<summary\>\<strong\>9.4 User Status\</strong\>\</summary\> 사용자의 현재 상태다.
+---
+
+ ## 10.4 User Status
+
+ 사용자의 현재 상태다.
 
  APMS-SR V1에서는:
 
@@ -877,12 +1063,13 @@ SUSPENDED
 
  가 정의되어 있다.
 
- \</details\>
 ---
 
- # 10\. Role 관련 용어
+ # 11\. Role 관련 용어
 
- \<details\> \<summary\>\<strong\>10.1 Role\</strong\>\</summary\> Role은 사용자의 **역할 또는 그룹**이다.
+ ## 11.1 Role
+
+ Role은 사용자의 **역할 또는 그룹**이다.
 
  예:
 
@@ -897,7 +1084,11 @@ USER
 
  를 표현한다.
 
- \</details\> \<details\> \<summary\>\<strong\>10.2 ADMIN\</strong\>\</summary\> 관리자 역할을 의미하는 Role 이름이다.
+---
+
+ ## 11.2 ADMIN
+
+ 관리자 역할을 의미하는 Role 이름이다.
 
  프로젝트에서는 이후 Migration에서 생성된다.
 
@@ -909,7 +1100,11 @@ ADMIN
 관리자 역할
 ```
 
- \</details\> \<details\> \<summary\>\<strong\>10.3 USER\</strong\>\</summary\> 일반 사용자 역할을 의미한다.
+---
+
+ ## 11.3 USER
+
+ 일반 사용자 역할을 의미한다.
 
  개념:
 
@@ -919,7 +1114,11 @@ USER
 일반 사용자 역할
 ```
 
- \</details\> \<details\> \<summary\>\<strong\>10.4 Role Level\</strong\>\</summary\> Role의 레벨을 숫자로 표현하는 값이다.
+---
+
+ ## 11.4 Role Level
+
+ Role의 레벨을 숫자로 표현하는 값이다.
 
  V1에서는:
 
@@ -931,7 +1130,11 @@ level INT NOT NULL DEFAULT 10
 
  정확한 비즈니스 규칙은 애플리케이션의 실제 사용처를 함께 확인해야 한다.
 
- \</details\> \<details\> \<summary\>\<strong\>10.5 System Role\</strong\>\</summary\> 시스템에서 기본적으로 관리하는 Role을 의미한다.
+---
+
+ ## 11.5 System Role
+
+ 시스템에서 기본적으로 관리하는 Role을 의미한다.
 
  V1의:
 
@@ -941,12 +1144,13 @@ is_system BOOLEAN
 
  컬럼이 이 정보를 저장한다.
 
- \</details\>
 ---
 
- # 11\. Permission 관련 용어
+ # 12\. Permission 관련 용어
 
- \<details\> \<summary\>\<strong\>11.1 Permission\</strong\>\</summary\> Permission은 **특정 기능을 수행할 수 있는 권한**이다.
+ ## 12.1 Permission
+
+ Permission은 **특정 기능을 수행할 수 있는 권한**이다.
 
  예:
 
@@ -963,7 +1167,11 @@ MENU_CREATE
 
  를 표현한다.
 
- \</details\> \<details\> \<summary\>\<strong\>11.2 Permission Name\</strong\>\</summary\> Permission을 코드에서 식별하기 위한 이름이다.
+---
+
+ ## 12.2 Permission Name
+
+ Permission을 코드에서 식별하기 위한 이름이다.
 
  예:
 
@@ -971,7 +1179,11 @@ MENU_CREATE
 USER_READ
 ```
 
- \</details\> \<details\> \<summary\>\<strong\>11.3 Permission Description\</strong\>\</summary\> Permission의 사람이 읽기 쉬운 설명이다.
+---
+
+ ## 12.3 Permission Description
+
+ Permission의 사람이 읽기 쉬운 설명이다.
 
  예:
 
@@ -980,12 +1192,13 @@ name = USER_READ
 description = 사용자 조회
 ```
 
- \</details\>
 ---
 
- # 12\. RBAC 관련 용어
+ # 13\. RBAC 관련 용어
 
- \<details\> \<summary\>\<strong\>12.1 RBAC\</strong\>\</summary\> **Role-Based Access Control**
+ ## 13.1 RBAC
+
+ **Role-Based Access Control**
 
  즉:
 
@@ -995,7 +1208,10 @@ description = 사용자 조회
 
  APMS-SR의 권한 구조를 이해할 때 매우 중요한 개념이다.
 
- \</details\> \<details\> \<summary\>\<strong\>12.2 RBAC의 기본 구조\</strong\>\</summary\>
+---
+
+ ## 13.2 RBAC의 기본 구조
+
 ```
 User
   ↓
@@ -1018,7 +1234,11 @@ USER_READ
 
  > alice는 USER Role을 가지고 있고, USER Role에는 USER\_READ 권한이 있다.
 
- \</details\> \<details\> \<summary\>\<strong\>12.3 User → Role\</strong\>\</summary\> 한 사용자가 하나 이상의 Role을 가질 수 있도록 설계할 수 있다.
+---
+
+ ## 13.3 User → Role
+
+ 한 사용자가 하나 이상의 Role을 가질 수 있도록 설계할 수 있다.
 
  예:
 
@@ -1030,7 +1250,11 @@ alice
 
  이 관계를 DB에서는 별도의 관계 테이블을 이용해 표현한다.
 
- \</details\> \<details\> \<summary\>\<strong\>12.4 Role → Permission\</strong\>\</summary\> 하나의 Role이 여러 Permission을 가질 수 있다.
+---
+
+ ## 13.4 Role → Permission
+
+ 하나의 Role이 여러 Permission을 가질 수 있다.
 
  예:
 
@@ -1042,18 +1266,23 @@ ADMIN
  └─ MENU_DELETE
 ```
 
- \</details\>
 ---
 
- # 13\. 관계(Relationship) 관련 용어
+ # 14\. 관계(Relationship) 관련 용어
 
- \<details\> \<summary\>\<strong\>13.1 1:1\</strong\>\</summary\> 한 데이터와 하나의 데이터가 연결되는 관계다.
+ ## 14.1 1:1
+
+ 한 데이터와 하나의 데이터가 연결되는 관계다.
 
 ```
 A → B
 ```
 
- \</details\> \<details\> \<summary\>\<strong\>13.2 1:N\</strong\>\</summary\> 하나의 데이터가 여러 데이터와 연결되는 관계다.
+---
+
+ ## 14.2 1:N
+
+ 하나의 데이터가 여러 데이터와 연결되는 관계다.
 
 ```
 A
@@ -1062,7 +1291,11 @@ A
 └─ D
 ```
 
- \</details\> \<details\> \<summary\>\<strong\>13.3 N:M\</strong\>\</summary\> 여러 개의 데이터가 서로 여러 개의 데이터와 연결되는 관계다.
+---
+
+ ## 14.3 N:M
+
+ 여러 개의 데이터가 서로 여러 개의 데이터와 연결되는 관계다.
 
  예:
 
@@ -1078,7 +1311,11 @@ Role
 
  이 프로젝트에서 `user_roles`가 이러한 관계를 표현하는 데 사용된다.
 
- \</details\> \<details\> \<summary\>\<strong\>13.4 관계 테이블\</strong\>\</summary\> N:M 관계를 DB에 저장하기 위해 사용하는 중간 테이블이다.
+---
+
+ ## 14.4 관계 테이블
+
+ N:M 관계를 DB에 저장하기 위해 사용하는 중간 테이블이다.
 
  예:
 
@@ -1100,12 +1337,13 @@ role_permissions
 permissions
 ```
 
- \</details\>
 ---
 
- # 14\. Authority 관련 용어
+ # 15\. Authority 관련 용어
 
- \<details\> \<summary\>\<strong\>14.1 Authority\</strong\>\</summary\> Spring Security에서 **접근 권한을 표현하는 개념**이다.
+ ## 15.1 Authority
+
+ Spring Security에서 **접근 권한을 표현하는 개념**이다.
 
  예:
 
@@ -1117,7 +1355,11 @@ USER_ROLE_MANAGE
 
  같은 값을 Authority로 사용할 수 있다.
 
- \</details\> \<details\> \<summary\>\<strong\>14.2 \`hasAuthority\`\</strong\>\</summary\> Spring Security에서 특정 Authority가 있는지 검사할 때 사용하는 표현이다.
+---
+
+ ## 15.2 `hasAuthority`
+
+ Spring Security에서 특정 Authority가 있는지 검사할 때 사용하는 표현이다.
 
  예:
 
@@ -1129,7 +1371,11 @@ USER_ROLE_MANAGE
 
  > 현재 인증된 사용자가 `USER_ROLE_MANAGE` Authority를 가지고 있어야 이 메서드를 실행할 수 있다.
 
- \</details\> \<details\> \<summary\>\<strong\>14.3 \`@PreAuthorize\`\</strong\>\</summary\> Spring Security에서 **메서드 실행 전에 접근 권한을 검사하는 Annotation**이다.
+---
+
+ ## 15.3 `@PreAuthorize`
+
+ Spring Security에서 **메서드 실행 전에 접근 권한을 검사하는 Annotation**이다.
 
  예:
 
@@ -1153,12 +1399,13 @@ YES → 실행
 NO  → 접근 거부
 ```
 
- \</details\>
 ---
 
- # 15\. Audit 관련 용어
+ # 16\. Audit 관련 용어
 
- \<details\> \<summary\>\<strong\>15.1 Audit\</strong\>\</summary\> 시스템에서 발생한 작업을 추적하고 기록하는 것이다.
+ ## 16.1 Audit
+
+ 시스템에서 발생한 작업을 추적하고 기록하는 것이다.
 
  쉽게:
 
@@ -1166,7 +1413,11 @@ NO  → 접근 거부
 
  를 기록하는 것.
 
- \</details\> \<details\> \<summary\>\<strong\>15.2 Audit Log\</strong\>\</summary\> Audit 기록을 저장한 데이터다.
+---
+
+ ## 16.2 Audit Log
+
+ Audit 기록을 저장한 데이터다.
 
  APMS-SR에서는 V3에서:
 
@@ -1176,7 +1427,11 @@ audit_logs
 
  테이블이 생성된다.
 
- \</details\> \<details\> \<summary\>\<strong\>15.3 Audit Log의 예\</strong\>\</summary\> 예를 들어 관리자가 사용자의 상태를 변경했다면:
+---
+
+ ## 16.3 Audit Log의 예
+
+ 예를 들어 관리자가 사용자의 상태를 변경했다면:
 
 ```
 누가?
@@ -1200,14 +1455,19 @@ audit_logs
 
  와 같은 정보를 기록할 수 있다.
 
- \</details\>
 ---
 
- # 16\. Password 관련 용어
+ # 17\. Password 관련 용어
 
- \<details\> \<summary\>\<strong\>16.1 Password\</strong\>\</summary\> 사용자가 로그인할 때 입력하는 비밀번호다.
+ ## 17.1 Password
 
- \</details\> \<details\> \<summary\>\<strong\>16.2 Plain Text Password\</strong\>\</summary\> 사용자가 입력한 원래 비밀번호 문자열이다.
+ 사용자가 로그인할 때 입력하는 비밀번호다.
+
+---
+
+ ## 17.2 Plain Text Password
+
+ 사용자가 입력한 원래 비밀번호 문자열이다.
 
  예:
 
@@ -1217,7 +1477,11 @@ hello1234
 
  DB에 그대로 저장하는 방식은 보안상 적절하지 않다.
 
- \</details\> \<details\> \<summary\>\<strong\>16.3 Password Hash\</strong\>\</summary\> 비밀번호를 해시 함수 등을 이용해 변환한 값이다.
+---
+
+ ## 17.3 Password Hash
+
+ 비밀번호를 해시 함수 등을 이용해 변환한 값이다.
 
  예:
 
@@ -1227,7 +1491,11 @@ $2a$10$....
 
  실제 프로젝트의 테스트 User Migration에서도 해시 형태의 Password가 사용된다.
 
- \</details\> \<details\> \<summary\>\<strong\>16.4 BCrypt\</strong\>\</summary\> 비밀번호를 안전하게 해싱하는 데 널리 사용되는 알고리즘이다.
+---
+
+ ## 17.4 BCrypt
+
+ 비밀번호를 안전하게 해싱하는 데 널리 사용되는 알고리즘이다.
 
  개념:
 
@@ -1241,16 +1509,27 @@ Hash
 DB
 ```
 
- \</details\>
 ---
 
- # 17\. Spring Security 관련 최소 Glossary
+ # 18\. Spring Security 관련 최소 Glossary
 
- \<details\> \<summary\>\<strong\>17.1 Spring Security\</strong\>\</summary\> Spring 애플리케이션에서 인증(Authentication)과 인가(Authorization)를 처리하는 보안 프레임워크다.
+ 이후 V6 및 인증/인가 코드를 이해하려면 다음 단어도 알아야 한다.
 
- \</details\> \<details\> \<summary\>\<strong\>17.2 Authentication\</strong\>\</summary\> 현재 로그인한 사용자가 누구인지 나타내는 인증 정보다.
+ ## 18.1 Spring Security
 
- \</details\> \<details\> \<summary\>\<strong\>17.3 Principal\</strong\>\</summary\> 현재 인증된 사용자를 나타내는 주체다.
+ Spring 애플리케이션에서 인증(Authentication)과 인가(Authorization)를 처리하는 보안 프레임워크다.
+
+---
+
+ ## 18.2 Authentication
+
+ 현재 로그인한 사용자가 누구인지 나타내는 인증 정보다.
+
+---
+
+ ## 18.3 Principal
+
+ 현재 인증된 사용자를 나타내는 주체다.
 
  쉽게:
 
@@ -1260,7 +1539,11 @@ DB
 
  라고 이해하면 된다.
 
- \</details\> \<details\> \<summary\>\<strong\>17.4 Authority\</strong\>\</summary\> 현재 사용자가 가지고 있는 권한이다.
+---
+
+ ## 18.4 Authority
+
+ 현재 사용자가 가지고 있는 권한이다.
 
  예:
 
@@ -1270,18 +1553,21 @@ MENU_READ
 USER_ROLE_MANAGE
 ```
 
- \</details\> \<details\> \<summary\>\<strong\>17.5 \`@PreAuthorize\`\</strong\>\</summary\> 메서드 실행 전에 권한을 검사하는 Annotation이다.
+---
+
+ ## 18.5 `@PreAuthorize`
+
+ 메서드 실행 전에 권한을 검사하는 Annotation이다.
 
 ```
 @PreAuthorize("hasAuthority('USER_ROLE_MANAGE')")
 ```
 
- \</details\>
 ---
 
- # 18\. Migration에서 자주 사용하는 약어
+ # 19\. Migration에서 자주 사용하는 약어
 
- \<details\> \<summary\>\<strong\>18.1 주요 약어\</strong\>\</summary\> | 약어 | 원래 표현 | 의미 |
+ | 약어 | 원래 표현 | 의미 |
 | --- | --- | --- |
 | DB | Database | 데이터베이스 |
 | DBMS | Database Management System | DB 관리 시스템 |
@@ -1296,12 +1582,12 @@ USER_ROLE_MANAGE
 | AuthN | Authentication | 인증 |
 | AuthZ | Authorization | 인가 |
 
-\</details\>
 ---
 
- # 19\. 가장 헷갈리기 쉬운 용어 비교
+ # 20\. 가장 헷갈리기 쉬운 용어 비교
 
- \<details\> \<summary\>\<strong\>19.1 Authentication vs Authorization\</strong\>\</summary\>
+ ## Authentication vs Authorization
+
 ```
 Authentication
 → 너 누구야?
@@ -1310,7 +1596,10 @@ Authorization
 → 너 이거 할 수 있어?
 ```
 
- \</details\> \<details\> \<summary\>\<strong\>19.2 Role vs Permission\</strong\>\</summary\>
+---
+
+ ## Role vs Permission
+
 ```
 Role
 → 어떤 역할인가?
@@ -1331,7 +1620,10 @@ USER_DELETE
 
  USER\_DELETE는 Permission이다.
 
- \</details\> \<details\> \<summary\>\<strong\>19.3 User vs Principal\</strong\>\</summary\>
+---
+
+ ## User vs Principal
+
 ```
 User
 → DB에 저장된 사용자 데이터
@@ -1340,7 +1632,10 @@ Principal
 → 현재 인증된 사용자를 나타내는 보안 개념
 ```
 
- \</details\> \<details\> \<summary\>\<strong\>19.4 Table vs Row vs Column\</strong\>\</summary\>
+---
+
+ ## Table vs Row vs Column
+
 ```
 Table
 → 데이터를 담는 전체 구조
@@ -1362,7 +1657,10 @@ id | username         ← Column
 1  | alice             ← Row
 ```
 
- \</details\> \<details\> \<summary\>\<strong\>19.5 PK vs FK\</strong\>\</summary\>
+---
+
+ ## PK vs FK
+
 ```
 PK
 → 나 자신을 식별
@@ -1383,12 +1681,12 @@ user_roles.user_id
   FK → users.id
 ```
 
- \</details\>
 ---
 
- # 20\. 이 프로젝트의 핵심 용어 관계도
+ # 21\. 이 프로젝트의 핵심 용어 관계도
 
- \<details\> \<summary\>\<strong\>20.1 인증/인가 관계도\</strong\>\</summary\>
+ 이 프로젝트를 이해할 때 가장 중요한 관계를 한 그림으로 표현하면 다음과 같다.
+
 ```
                          Authentication
                                │
@@ -1445,12 +1743,12 @@ role_permissions
 permissions
 ```
 
- \</details\>
 ---
 
- # 21\. Flyway와 애플리케이션의 관계
+ # 22\. Flyway와 애플리케이션의 관계
 
- \<details\> \<summary\>\<strong\>21.1 전체 시스템 관계\</strong\>\</summary\>
+ 전체 시스템을 보면 다음과 같다.
+
 ```
                     Git
                      │
@@ -1477,12 +1775,13 @@ permissions
 
  이라고 볼 수 있다.
 
- \</details\>
 ---
 
- # 22\. 앞으로 나올 Migration 용어 미리 보기
+ # 23\. 앞으로 나올 Migration 용어 미리 보기
 
- \<details\> \<summary\>\<strong\>22.1 V1\~V6 용어\</strong\>\</summary\> | 용어 | 처음 등장 |
+ 이후 V1\~V6을 공부하면서 다음 용어들이 등장한다.
+
+ | 용어 | 처음 등장 |
 | --- | --- |
 | `users` | V1 |
 | `roles` | V1 |
@@ -1498,12 +1797,12 @@ permissions
 | `USER_ROLE_MANAGE` | V6 |
 | `@PreAuthorize` | 애플리케이션 코드/V6과 연결 |
 
-\</details\>
 ---
 
- # 23\. V1\~V6을 읽기 위한 핵심 단어 사전
+ # 24\. V1\~V6을 읽기 위한 핵심 단어 사전
 
- \<details\> \<summary\>\<strong\>23.1 핵심 단어 압축본\</strong\>\</summary\>
+ 마지막으로 정말 자주 나오는 단어만 압축하면 다음과 같다.
+
 ```
 Database
 → 데이터를 저장하는 곳
@@ -1554,12 +1853,11 @@ Authority
 → 메서드 실행 전에 권한을 검사
 ```
 
- \</details\>
 ---
 
- # 24\. 이것만 기억하고 V1로 넘어가기
+ # 25\. 이것만 기억하고 V1로 넘어가기
 
- \<details\> \<summary\>\<strong\>24.1 V1 진입 전 최종 요약\</strong\>\</summary\> V1을 보기 전에 아래 그림을 머릿속에 가지고 있으면 된다.
+ V1을 보기 전에 아래 그림을 머릿속에 가지고 있으면 된다.
 
 ```
               ┌───────────┐
@@ -1611,27 +1909,4 @@ Permission
 
  그 다음 V2에서 이들을 연결하기 시작한다.
 
- \</details\>
----
-
- # 문서 순서
-
-```
-00_Glossary
-    ↓
-V1
-    ↓
-V2
-    ↓
-V3
-    ↓
-V4
-    ↓
-V5
-    ↓
-V6
-```
-
- Glossary는 이후 문서에서 반복 설명을 줄이는 **기준 문서**로 사용한다.
-
- 이렇게 해두면 Markdown을 볼 때 **제목만 훑으면서 전체 구조를 파악하고**, 필요한 용어만 클릭해서 펼쳐보는 형태가 됩니다. 특히 V1\~V6 학습용이라면 이 방식이 원문을 삭제하는 것보다 훨씬 좋습니다.
+ 이제 문서 순서는 \*\*`00_Glossary → V1 → V2 → ...`\*\*로 잡으면 돼. 특히 Glossary는 이후 문서에서 반복 설명을 줄이는 **기준 문서** 역할을 하게 하면 좋다.
