@@ -1,0 +1,91 @@
+# APMS.SR Data Layer Evidence Index
+
+> 데이터 계층 관련 요구사항·설계·구현·테스트·실행 증거를 연결하는 Evidence Index이다.
+> 상세 내용은 각 원본 문서와 소스 코드를 참조한다.
+
+---
+
+## 1. Evidence Chain
+
+```text
+PRD
+ ↓
+ADR
+ ↓
+Source Code
+ ↓
+Test
+ ↓
+Runtime Evidence
+```
+
+각 Claim은 위 Evidence Chain을 통해 추적한다.
+
+---
+
+## 2. Claim Matrix
+
+| ID    | Claim                             | PRD     | ADR     | Source             | Test     | Runtime | Status   |
+| ----- | --------------------------------- | ------- | ------- | ------------------ | -------- | ------- | -------- |
+| DL-01 | 권한 스키마 및 관계가 정의되어 있다              | PRD-xxx | ADR-xxx | V2 migration       | Test-xxx | RT-01   | VERIFIED |
+| DL-02 | PK/FK/UNIQUE/NOT NULL 제약이 정의되어 있다 | PRD-xxx | ADR-xxx | V2 migration       | Test-xxx | RT-02   | VERIFIED |
+| DL-03 | Refresh Token을 Redis에서 관리한다       | PRD-xxx | ADR-xxx | Repository         | Test-xxx | RT-03   | VERIFIED |
+| DL-04 | Refresh Token TTL 정책이 정의되어 있다     | PRD-xxx | ADR-xxx | Repository/Service | Test-xxx | RT-04   | VERIFIED |
+| DL-05 | Refresh Token Rotation을 구현한다      | PRD-xxx | ADR-xxx | Service/Lua        | Test-xxx | RT-05   | VERIFIED |
+| DL-06 | 기존 JTI 재사용을 방어한다                  | PRD-xxx | ADR-xxx | Service/Lua        | Test-xxx | RT-06   | VERIFIED |
+| DL-07 | Token Revocation 상태를 Redis에서 관리한다 | PRD-xxx | ADR-xxx | Blacklist Service  | Test-xxx | RT-07   | VERIFIED |
+
+---
+
+## 3. Evidence Reference
+
+
+### DL-02 — Database Constraints
+
+**Requirement**
+
+`PRD-xxx`
+
+**Decision**
+
+`ADR-xxx`
+
+**Implementation**
+
+`V2__init_authority_schema.sql`
+
+**Test**
+
+`<test path>`
+
+**Runtime**
+
+`RT-02`
+
+
+---
+
+## 4. Verification Status
+
+| Status     | Meaning                                      |
+| ---------- | -------------------------------------------- |
+| `VERIFIED` | Required evidence chain is complete          |
+| `PARTIAL`  | 일부 Evidence Chain이 존재하지만 Runtime 등 일부 증거가 없음 |
+| `PLANNED`  | 검증 예정                                        |
+
+**주의:** `VERIFIED`는 단순히 Source가 존재한다는 의미가 아니다. 해당 Claim에 요구되는 Evidence Chain이 모두 충족된 경우에만 사용한다.
+
+---
+
+## 5. Evidence Boundary
+
+이 문서는 상세 구현 설명이나 실행 로그를 저장하지 않는다.
+
+* PRD → 요구사항의 원본
+* ADR → 설계 결정의 원본
+* Source → 실제 구현
+* Test → 자동화 검증
+* Runtime Evidence → 실제 실행 결과
+* Reproduction → 재현 절차
+
+본 문서는 위 자료들을 연결하는 **Index / Traceability Layer**이다.
