@@ -91,6 +91,9 @@ Role ── Permission
 
 ---
 
+<details>
+<summary><strong> 4. users </strong></summary>
+
  # 4\. users
 
  ## 4.1 목적
@@ -205,7 +208,12 @@ SUSPENDED
 
  User 정보가 마지막으로 수정된 시간을 저장한다.
 
+</details>
+
 ---
+
+<details>
+<summary><strong> 5. roles </strong></summary>
 
  # 5\. roles
 
@@ -314,7 +322,12 @@ System Role 여부
 
  Role의 생성 및 마지막 수정 시간을 저장한다.
 
+</details>
+
 ---
+
+<details>
+<summary><strong> 6. permissions </strong></summary>
 
  # 6\. permissions
 
@@ -412,13 +425,22 @@ description
 
  Permission의 생성 및 마지막 수정 시간을 저장한다.
 
+</details>
+
 ---
 
- # 7\. V1에서 중요한 설계 범위
+<details>
+<summary><strong> 7~10. V1과 V2의 쉬운 정리 </strong></summary>
 
- V1의 역할은 **기본 Entity를 저장할 구조를 만드는 것**이다.
 
- 따라서 다음 세 가지가 핵심이다.
+
+ # 7\. V1의 목적
+
+## V1과 V2를 쉽게 정리하면
+
+ ### V1의 목적
+
+ V1에서는 **기본 Entity를 저장할 테이블만 만든다.**
 
 ```
 users
@@ -426,150 +448,46 @@ roles
 permissions
 ```
 
- 그리고 각 테이블은 서로 독립적으로 생성된다.
-
-```
-users          roles          permissions
-  │              │                │
-  │              │                │
-  └──────────────┴────────────────┘
-         아직 관계 없음
-```
-
+ 세 테이블은 **서로 관계없이 독립적으로 생성**한다.
 ---
 
- # 8\. 왜 관계를 V1에서 만들지 않는가?
-
- User와 Role은 실제로 서로 관계를 가진다.
-
-```
-User
- ↓
-Role
-```
-
- 또한 Role과 Permission도 관계를 가진다.
+ # 8\. 왜 관계는 나중에?
+ User와 Role은 다대다 관계이고, Role과 Permission도 다대다 관계다.
 
 ```
-Role
- ↓
-Permission
+User ── 여러 Role
+Role ── 여러 Permission
 ```
 
- 하지만 각각 여러 개를 가질 수 있는 구조이므로 단순히 한쪽 테이블에 ID 하나를 추가하는 방식으로 처리하기 어렵다.
-
- 예를 들어:
-
-```
-alice
- ├── USER
- └── MANAGER
-```
-
- 처럼 한 User가 여러 Role을 가질 수 있다.
-
- 반대로:
-
-```
-ADMIN
- ├── USER_READ
- ├── USER_DELETE
- ├── MENU_READ
- └── MENU_DELETE
-```
-
- 처럼 하나의 Role도 여러 Permission을 가질 수 있다.
-
- 따라서 이 관계는 별도의 관계 테이블을 이용해 관리한다.
-
- 이 작업은 V2에서 진행한다.
+ 그래서 단순히 `users`나 `roles`에 ID 하나를 넣는 방식이 아니라 **중간 테이블**이 필요하다.
 
 ---
 
  # 9\. V1 → V2
 
- V1:
-
 ```
 users
-roles
-permissions
-```
-
- V2:
-
-```
-users
-  │
-  ▼
+  ↓
 user_roles
-  │
-  ▼
+  ↓
 roles
-  │
-  ▼
+  ↓
 role_permissions
-  │
-  ▼
+  ↓
 permissions
 ```
 
- 따라서 두 Migration의 역할을 간단하게 구분하면:
+ 즉,
 
-```
-V1
-→ 기본 데이터를 저장할 테이블 생성
+ - **V1** → 테이블의 기본 구조 생성
+- **V2** → 테이블 간 관계 생성
+- **이후 Migration** → 기본 Permission, 기본 User 같은 실제 데이터 삽입
 
-V2
-→ 테이블 사이의 관계 생성
-```
+ ### 10. 한 줄 요약
 
- 이다.
+ > **V1은 "그릇 만들기", V2는 "그릇끼리 연결하기", 이후 Migration은 "기본 데이터 넣기"다.**
 
----
-
- # 10\. V1에서 생성하지 않는 것
-
- V1에서는 다음 작업을 수행하지 않는다.
-
- ### User ↔ Role 관계
-
-```
-users
-  ↕
-user_roles
-  ↕
-roles
-```
-
- V2에서 생성한다.
-
- ### Role ↔ Permission 관계
-
-```
-roles
-  ↕
-role_permissions
-  ↕
-permissions
-```
-
- V2에서 생성한다.
-
- ### 기본 Permission 데이터
-
-```
-USER_READ
-USER_DELETE
-MENU_READ
-...
-```
-
- 와 같은 실제 Permission 데이터는 이후 Migration에서 삽입한다.
-
- ### 기본 User 데이터
-
- 테스트 User 등의 실제 데이터 역시 V1의 역할이 아니다.
+</details>
 
 ---
 
