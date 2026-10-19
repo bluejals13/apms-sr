@@ -1,0 +1,48 @@
+src/main/java/com/example/demo
+
+
+
+
+├── user
+│   ├── controller
+│   │   └── UserController.java
+│   │
+│   ├── service
+│   │   └── UserService.java
+│   │
+│   ├── repository
+│   │   └── UserRepository.java
+│   │
+│   ├── domain
+│   │   └── User.java
+│   │
+│   ├── dto
+│   │   ├── SignupRequest.java
+│   │   ├── LoginRequest.java
+│   │   ├── UserResponse.java
+│   │   └── UpdatePasswordRequest.java
+│   │
+│   └── exception
+│       ├── DuplicateUserException.java
+│       └── UserNotFoundException.java
+
+ ├── jwt
+ │    └── JwtProvider
+ ├── security
+ │    ├── JwtAuthenticationFilter
+ │    ├── CustomUserPrincipal
+ │    └── SecurityConfig
+
+
+├── PageController.java
+
+
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@AllArgsConstructor
+
+
+🚨 4. PasswordEncoder 구조 OK
+@Bean
+public PasswordEncoder passwordEncoder()
+
+✔ 정상 (Service에 있으면 안 됨 → 지금은 OK)

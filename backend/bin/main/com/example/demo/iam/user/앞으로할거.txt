@@ -1,0 +1,44 @@
+
+
+
+8. 현재 부족한 부분
+
+이제 다음 단계에서 필요한 건:
+
+(1) Refresh Token
+
+현재는 Access Token only.
+
+실무에서는:
+
+Access Token (짧음)
+Refresh Token (김)
+
+구조 거의 필수.
+
+(2) Exception Handler
+
+현재는 예외가 raw 상태.
+
+추천:
+
+@RestControllerAdvice
+
+추가.
+
+예:
+
+@ExceptionHandler(BadCredentialsException.class)
+(3) Validation
+
+현재:
+
+req.password().length()
+
+직접 검사.
+
+실무는:
+
+@Valid
+@NotBlank
+@Size(min = 8)

@@ -1,0 +1,45 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    # docker-compose에서 주입받거나, 없으면 기본값(localhost) 사용
+    url: ${SPRING_DATASOURCE_URL:jdbc:mysql://localhost:3306/eventdb?serverTimezone=Asia/Seoul&useUnicode=true&characterEncoding=UTF-8}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: ${SPRING_DATASOURCE_USERNAME:root}
+    password: ${SPRING_DATASOURCE_PASSWORD:password}
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+  flyway:
+    enabled: true
+    baseline-on-migrate: false
+
+  data:
+    redis:
+      host: ${SPRING_REDIS_HOST:localhost}
+      port: ${SPRING_REDIS_PORT:6379}
+      repositories:
+        enabled: false
+
+jwt:
+  # 실무에서는 이 값도 환경변수로 뺍니다.
+  secret: ${JWT_SECRET:this_is_a_very_long_secret_key_for_jwt_signing_123456}
+  expiration: 3600000
+  access-expiration: 3600000
+  refresh-expiration: 604800000
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: prometheus, health, info
+  endpoint:
+    health:
+      show-details: always

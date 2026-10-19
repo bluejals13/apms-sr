@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>Advanced Monitor</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="header">
+    <h1>🔥 Advanced Monitor</h1>
+    <div class="subtitle">Real-time Request Monitoring Dashboard</div>
+</header>
+
+<div class="wrapper">
+
+    <!-- LEFT -->
+    <section class="left">
+
+        <div class="card controls">
+            <input id="urlFilter" placeholder="🔍 URL (/api)">
+            
+            <select id="methodFilter">
+                <option value="">ALL</option>
+                <option>GET</option>
+                <option>POST</option>
+            </select>
+
+            <input id="bodyFilter" placeholder="Body 검색">
+
+            <input id="intervalInput" type="number" value="1000"> ms
+            <input id="timeLimit" type="number" placeholder="최근 N초">
+
+            <label class="checkbox">
+                <input type="checkbox" id="autoRefresh" checked> Auto
+            </label>
+
+            <button id="clearBtn">Clear</button>
+            <button id="downloadBtn">Download</button>
+        </div>
+
+        <div class="card log-container">
+            <div class="log-header">
+                <span>Method</span>
+                <span>Request</span>
+                <span>Time</span>
+            </div>
+            <div id="logs"></div>
+        </div>
+
+    </section>
+
+    <!-- RIGHT -->
+    <aside class="right">
+
+        <div class="stat">
+            <h3>RPS</h3>
+            <div id="rps" class="stat-value">0</div>
+            <div class="bar"><div id="rpsBar" class="bar-fill"></div></div>
+        </div>
+
+        <div class="stat">
+            <h3>GET 비율</h3>
+            <div id="getRatio" class="stat-value">0%</div>
+        </div>
+
+        <div class="stat">
+            <h3>최근 요청 (5초)</h3>
+            <div id="recentCount" class="stat-value">0</div>
+        </div>
+
+    </aside>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

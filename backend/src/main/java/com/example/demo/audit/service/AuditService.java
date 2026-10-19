@@ -8,6 +8,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @Service
 @RequiredArgsConstructor
 @Transactional
@@ -33,5 +36,6 @@ public class AuditService {
         );
     
         auditRepository.save(audit);
+        log.info("[AUDIT SAVED] user:{}, action:{}, target:{} {}", userId, action, targetType, targetId);
     }
 }

@@ -39,8 +39,8 @@ dependencies {
     runtimeOnly 'com.mysql:mysql-connector-j'
     
     // flyway 적용 부분 Hibernate bbl-auto 제거
-    implementation 'org.flywaydb:flyway-core:11.0.0'
-    implementation 'org.flywaydb:flyway-mysql:11.0.0'
+    implementation 'org.flywaydb:flyway-core:10.0.0'
+    implementation 'org.flywaydb:flyway-mysql:10.0.0'
     
     // VALIDATION (DTO 검증)
     implementation 'org.springframework.boot:spring-boot-starter-validation'
@@ -60,7 +60,7 @@ dependencies {
     testImplementation 'org.springframework.security:spring-security-test'
     // TEST H2
     testImplementation 'com.h2database:h2'
-    
+
     // LOMBOK
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'

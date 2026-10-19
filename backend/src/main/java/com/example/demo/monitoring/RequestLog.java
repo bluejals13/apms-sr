@@ -1,13 +1,10 @@
 package com.example.demo.monitoring;
 
-public class RequestLog {
-    public String method;
-    public String url;
-    public String body;
-
-    public RequestLog(String method, String url, String body) {
-        this.method = method;
-        this.url = url;
-        this.body = body;
-    }
-}
+// 프론트엔드 JSON 구조(timestamp, username, method, uri, body)와 일치하는 불변 DTO
+public record RequestLog(
+        String timestamp,
+        String username,
+        String method,
+        String uri,
+        String body
+) {}
