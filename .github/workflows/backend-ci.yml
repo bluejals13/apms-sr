@@ -6,7 +6,7 @@ on:
   pull_request:
     branches: [ main, develop ]
     paths:
-      - 'apms-sr/backend/**'
+      - 'backend/**'
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: apms-sr/backend
+        working-directory: backend
 
     steps:
       - name: Checkout repository
