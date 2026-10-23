@@ -24,8 +24,8 @@ jobs:
       - name: Build and push Backend Image
         uses: docker/build-push-action@v5
         with:
-          context: ./apms-sr/backend
-          file: ./apms-sr/backend/Dockerfile
+          context: ./backend
+          file: ./backend/Dockerfile
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/apms-backend:latest
 
@@ -33,8 +33,8 @@ jobs:
       - name: Build and push Frontend Image
         uses: docker/build-push-action@v5
         with:
-          context: ./apms-sr/frontend
-          file: ./apms-sr/frontend/Dockerfile
+          context: ./frontend
+          file: ./frontend/Dockerfile
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/apms-frontend:latest
 
