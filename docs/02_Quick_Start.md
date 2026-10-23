@@ -44,6 +44,27 @@ GRAFANA_ID=admin
 GRAFANA_PW=1234
 ```
 
+### apms-sr/backend/.env
+```
+# 데이터베이스 연결 정보 (MySQL 기준)
+SPRING_DATASOURCE_URL=jdbc:mysql://<host>:<port>/<db_name>
+SPRING_DATASOURCE_USERNAME=<username>
+SPRING_DATASOURCE_PASSWORD=<password>
+
+# (선택) 추가적인 백엔드 환경 변수가 있다면 아래에 이어서 작성
+# JWT_SECRET_KEY=A***Z
+# SERVER_PORT=*0*0
+```
+
+### apms-sr/backend/.env
+```
+# 백엔드 API 서버 주소
+REACT_APP_API_URL=http://13.124.xx.xx:8080
+
+# 만약 Vite를 사용 중이시라면 아래와 같이 작성합니다:
+# VITE_API_URL=http://13.124.xx.xx:8080
+```
+
 ---
 
 ## 3. 전체 인프라 원클릭 실행 (Docker Compose)

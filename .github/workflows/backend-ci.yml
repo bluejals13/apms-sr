@@ -2,14 +2,19 @@ name: backend-ci
 
 on:
   push:
-    branches:
-      - main
-      - develop
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+    paths:
+      - 'apms-sr/backend/**'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
     defaults:
       run:
         working-directory: apms-sr/backend
@@ -30,13 +35,18 @@ jobs:
           path: |
             ~/.gradle/caches
             ~/.gradle/wrapper
-          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+          key: ${{ runner.os }}-gradle-${{ hashFiles('apms-sr/backend/**/*.gradle*', 'apms-sr/backend/**/gradle-wrapper.properties') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-
+
+      - name: Make .env file from Secrets
+        run: |
+          echo "SPRING_DATASOURCE_URL=${{ secrets.DB_URL }}" >> .env
+          echo "SPRING_DATASOURCE_USERNAME=${{ secrets.DB_USER }}" >> .env
+          echo "SPRING_DATASOURCE_PASSWORD=${{ secrets.DB_PASSWORD }}" >> .env
 
       - name: Grant permission
         run: chmod +x gradlew
 
-      - name: Build
+      - name: Build and Test
         run: ./gradlew clean build --stacktrace
-
-      - name: Run tests
-        run: ./gradlew test

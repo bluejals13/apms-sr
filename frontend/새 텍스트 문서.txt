@@ -1,0 +1,8 @@
+# 2. 프론트엔드 .env 예시 (React / Vite 기준)
+# 프로젝트 루트 또는 빌드 경로(apms-sr/frontend/.env)에 위치하게 될 파일입니다.
+
+# 백엔드 API 서버 주소
+REACT_APP_API_URL=http://13.124.xx.xx:8080
+
+# 만약 Vite를 사용 중이시라면 아래와 같이 작성합니다:
+# VITE_API_URL=http://13.124.xx.xx:8080d
